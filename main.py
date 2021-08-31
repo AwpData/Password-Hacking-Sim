@@ -3,6 +3,7 @@ import json
 import socket
 import sys
 
+
 def generate_credential(credential):
     for i in itertools.product(*zip(credential.upper(), credential.lower())):
         yield "".join(i)
@@ -34,6 +35,10 @@ def get_password():
                 break
 
 
+if len(sys.argv) != 3:
+    print("Please only provide hostname and port args!")
+    exit(-1)
+    
 logins = open("logins.txt", "r+")
 passwords = open("passwords.txt", "r+")
 
